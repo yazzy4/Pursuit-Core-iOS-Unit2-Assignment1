@@ -59,7 +59,20 @@ class TicTacToeBrain {
                 }
             }
         }
-        for idexOfDiagonal in 0 
+         var diagonalOne = [String]()
+        for i in 0..<gameArray.count {
+            diagonalOne.append(gameArray[i][i])
+            if diagonalOne == [o,o,o] {
+                playerOneWins = true
+            } else if diagonalOne == [x,x,x] {
+                playerTwoWins = true
+            }
+        }
+        var diagonalTwo = [String]()
+        for i in 0..<gameArray.count {
+            diagonalTwo.append(gameArray[i][gameArray.count - 1 - i])
+        }
+        
     }
 
 
@@ -68,48 +81,3 @@ class TicTacToeBrain {
 
 
 
-//static let xCard = "signX"
-//static let oCard = "signO"
-//var images: UIImage
-//var result: Bool
-//
-//init(images: UIImage, result: Bool){
-//    self.images = images
-//    self.result = result
-//}
-
-
-
-//public struct ThreeCardMonteImageName {//public anybody outside of three card monte could access this struck
-//    //use structs for constants
-//    static let threeCard = "threeCard" //static let means type property
-//    static let kingCard = "kingCard"
-//}
-//
-//// final indicates no other class can subclass ThreeCardMonte
-//final class ThreeCardMonte: Card {
-//    // properties
-//    var image: UIImage
-//    var isWinningCard: Bool
-//
-//    // initializer
-//    init(image: UIImage, isWinningCard: Bool) {
-//        self.image = image
-//        self.isWinningCard = isWinningCard
-//    }
-//
-//    // methods
-//    static func getCards(numberOfCards: Int) -> [ThreeCardMonte] {
-//        var cards = [ThreeCardMonte]()
-//        for index in 1...numberOfCards {
-//            var card: ThreeCardMonte!//implicit unwrap
-//            if index == 1 {
-//                card = ThreeCardMonte(image: UIImage(named: ThreeCardMonteImageName.kingCard)!, isWinningCard: true)
-//            } else {
-//                card = ThreeCardMonte(image: UIImage(named: ThreeCardMonteImageName.threeCard)!, isWinningCard: false)
-//            }
-//            cards.append(card)
-//        }
-//        return cards
-//    }
-//}
