@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var collectionOfButtons: Array<GameButton>!
+    @IBOutlet var collectionOfButtons: [GameButton]!
     @IBOutlet weak var winningLabel: UILabel!
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -42,11 +42,13 @@ sender.setBackgroundImage(UIImage(named:"signO"), for: .normal)
        
     }
     @IBAction func reset( newGameButton: UIButton) {
+        collectionOfButtons.forEach {$0.setBackgroundImage(nil, for: .normal)}
+        collectionOfButtons.forEach {$0.isEnabled = true}
         winningLabel.text = "New Game"
-        for card in collectionOfButtons {
-            card.isEnabled = true
-            
-        }
+//        for card in collectionOfButtons {
+//            card.isEnabled = true
+//            
+//        }
         
     }
     
