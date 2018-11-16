@@ -7,26 +7,76 @@
 //
 
 import UIKit
+var emptySpace = "_"
+var x = "x"
+var o = "o"
+
+struct xAndO {
+    var exes: String
+    var ohs:  String
+}
 
 class TicTacToeBrain {
-     static let xCard = "signX"
-     static let oCard = "signO"
-        var images: UIImage
-        var result: Bool
-        
-    init(images: UIImage, result: Bool){
-        self.images = images
-        self.result = result
+    var playerOne = false
+    var playerTwo = false
+    var gameArray = [
+                    [ emptySpace, emptySpace, emptySpace ], [emptySpace, emptySpace, emptySpace], [emptySpace, emptySpace, emptySpace]
+                    ]
+    
+    var playersTurnCounter = 0
+    var playerOneWins = false
+    var playerTwoWins = false
+    func userMove() {
+        playersTurnCounter += 1
+        if playersTurnCounter % 2 == 1 {
+            playerOne = true
+            playerTwo = false
+        } else {
+            playerTwo = true
+            playerOne = false
+        }
     }
-    
-    
    
-    
-   // playerTurn.switchPlayerTurn()
+    func winningResult() {
+        for row in gameArray {
+            if row == [x,x,x] {
+                playerTwoWins = true
+                break
+            }else if row == [o,o,o] {
+                playerOneWins = true
+                break
+            }
+            
+        }
+        for indexOfColumn in 0..<gameArray[0].count {
+            var myColumn = [String]()
+            for indexOfRow in 0..<gameArray.count {
+                myColumn.append(gameArray[indexOfRow][indexOfColumn])
+                if myColumn == [o,o,o] {
+                    playerOneWins = true
+                }else if myColumn == [x,x,x]{
+                    playerTwoWins = true
+                }
+            }
+        }
+        for idexOfDiagonal in 0 
+    }
+
 
 }
 
 
+
+
+//static let xCard = "signX"
+//static let oCard = "signO"
+//var images: UIImage
+//var result: Bool
+//
+//init(images: UIImage, result: Bool){
+//    self.images = images
+//    self.result = result
+//}
 
 
 
